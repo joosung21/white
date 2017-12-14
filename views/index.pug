@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    //- link(rel='shortcut icon', type='image/png', href='/images/favicon.png')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    //- meta(property='og:image', content='http://www.onda.me/images//mockup-penppy.png')
+    //- meta(property='og:title', content='ONDA(온다) - 실시간 숙박예약관리 서비스')
+    //- meta(property='og:description', content='펜션/게스트하우스/리조트/해외민박 등의 객실관리, 숙박관리 서비스 무료. 다국어지원.')
+    
+    title White
+
+    //- scripts
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')    
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')    
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js')
+    script(src='/assets/sweetalert/sweetalert.min.js')
+    script(src='/js/clusterer.js')
+    script(src='/js/white.js')
+    
+    //- styles
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')    
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css')
+    link(rel='stylesheet', href='/assets/sweetalert/sweetalert.css') 
+    link(rel='stylesheet', href='/css/white.css')
+
+  body
+    #header
+      .row
+        .col-lg-6
+          .logo.inline
+            img.img-fluid(src='/images/tmon_logo.png')
+          .group-name.inline Member's Mall
+        .col-lg-6.text-lg-right
+          a.nav.mr-4.inline(href='#')
+            span 나의 찜목록
+            span.badge.badge-pill.badge-secondary.ml-1 10
+          a.nav.mr-4.inline(href='#')
+            span 장바구니
+            span.badge.badge-pill.badge-secondary.ml-1 1
+          .nav.dropdown.inline
+            div(href='#', role='button', id='dropdownUser', data-toggle='dropdown')
+              i.fa.fa-user.fa-lg
+              span 김티몬            
+            .dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownUser')              
+              a.dropdown-item(href='/login') 로그아웃
+    
+    //- Start Grid
+    .grid-wrapper  
+      #search.panel.panel-card.bg-light
+        .form-group
+            label 지역
+            input.form-control(type='type', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
+        .form-group
+          label 체크인          
+          input.form-control(type='date', value='2018-03-01')          
+        .form-group
+          label 체크아웃          
+          input.form-control(type='date', value='2018-03-04')
+        .row.compact
+          .col-lg-4
+            .form-group
+              label 성인
+              input.form-control(type='number', value='2', min='1')
+          .col-lg-4
+            .form-group
+              label 어린이
+              input.form-control(type='number', min='0')
+          .col-lg-4
+            .form-group
+              label 유아
+              input.form-control(type='number', min='0')        
+
+      #filter.panel.panel-card.bg-light
+        .form-group
+          label 형태
+          .check-group
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  호텔 / 레지던스 / 리조트
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  호스텔 / 게스트하우스
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  펜션 / 풀빌라
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  캠핑 / 글램핑
+      
+      #map.panel        
+        script.
+          function initMap() {
+            // Create new Google Map
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 10,
+              center: {lat: 33.383886, lng: 126.542081}, //제주도
+              mapTypeControl: false,
+              draggable: true,
+              //draggable: !("ontouchend" in document),
+              panControl: true,
+              scaleControl: true
+            });
+
+            // get Json Data
+            var hosts = [];
+            $.ajax({
+              url: '/js/test.json',
+              async: false,
+              dataType: 'json',
+              success: function (json) {
+                hosts = json;
+              }
+            });
+
+            // marker icon image
+            var icon = "/images/pin3.png";
+            
+            //Add some markers to the map.
+            var markers = hosts.map(function(host, i) {
+                var myLatlng = new google.maps.LatLng(host.lat,host.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title: host.title,
+                    map: map,
+                    icon: icon
+                });
+                infoWindow(marker, map, host.title, host.address, host.img, "view")
+                return marker;
+            });
+
+
+            // Set a marker clusterer style.
+            var clusterStyles = [
+              {
+                textColor: 'white',
+                textSize: 22,
+                url: 'images/cluster.png',
+                height: 70,
+                width: 70
+              }
+            ];
+
+            var mcOptions = {
+                gridSize: 50,
+                styles: clusterStyles,
+                maxZoom: 15
+            };
+
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+            
+
+            // global infowindow
+            google.maps.event.addDomListener(window, "load", initMap);
+
+            var iw = new google.maps.InfoWindow({
+              maxWidth: 350
+            });
+
+            function infoWindow(marker, map, title, address, image, url) {
+              google.maps.event.addListener(marker, 'click', function() {
+                var html = "<div class='infowindow'><a href='view.php'><img src='" + image + "' class='img' style='width:100%' /></a><h3>" + title + "</h3><p>" + address + "<br/><a href='" + url + "' target='_blank'>자세히 보기</a></p></div>";
+                // set the content (saved in html variable using function closure)
+                iw.setContent(html);
+                // open the infowindow on the marker.
+                iw.open(map, marker);
+              });
+            }
+
+            // Fit bound
+            var bounds = new google.maps.LatLngBounds();
+
+            for (var i=0; i<markers.length; i++) {
+                if(markers[i].getVisible()) {
+                    bounds.extend( markers[i].getPosition() );
+                }
+            }
+
+            map.fitBounds(bounds);
+
+           }
+        script(async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYAR9ha33tDQfl81KCVoePD_w3KcAaWGo&callback=initMap')
+
+      #property-001.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-01.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기          
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+
+      #property-002.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-02.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-003.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-03.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-004.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-04.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-005.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-05.png')
+        h4.mb-0 테스트 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug        
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-006.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-06.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+
+      #property-007.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-01.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-008.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-06.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-009.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-04.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-010.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-02.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-011.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-03.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x          
+          
+      #property-012.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-01.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-013.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-06.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-014.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-02.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
+      #property-015.property.panel.panel-card
+        .thumbnail
+          img.img-fluid(src='/images/temp-hotel-03.png')
+        h4.mb-0 제주 제이제이 호텔
+        p.text-muted
+          i.fa.fa-map-marker
+          | 제주도 서귀포시
+        .price-sum 120,000원 - 240,000원
+        .desc
+          include description.pug
+        .panel-footer
+          button.btn.btn-link.open-panel 자세히 보기
+        a.close(onclick='closePanel()')
+          i.fa.fa-times-circle-o.fa-2x
+          
