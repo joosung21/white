@@ -44,7 +44,9 @@ body, input
 .bg-light
   background-color: $light !important
 
-.hidden-sm
+.align-items-middle
+  *
+    vertical-align: middle
 
 //---------- Bootstrap Overide
 .badge-secondary
@@ -60,59 +62,62 @@ body, input
 
 //---------- Grid
 $panel-card-padding: 1.5rem
+$panel-radius: .3rem
+$grid-width: 20rem
+$grid-small-width: 10rem
 
-.grid-wrapper
-  padding: 2rem
+.grid-wrapper  
   display: grid
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr))
+  grid-template-columns: repeat(auto-fill, minmax($grid-width, 1fr))  
   grid-gap: 1rem
-.panel  
-  &.panel-card    
-    position: relative
-    background: white
-    border-radius: .25rem
-    padding: $panel-card-padding
-    box-shadow: 0px 2px 10px rgba(0,0,0,.15)
-    overflow: hidden
-    .panel-footer
-      text-align: right
-      border-top: 1px solid #dddddd
-      margin-top: $panel-card-padding
-      margin-right: -$panel-card-padding
-      margin-left: -$panel-card-padding
-      margin-bottom: -$panel-card-padding / 2
-      padding-top: 0
-      padding-right: $panel-card-padding / 2
-      padding-left: $panel-card-padding / 2
-      padding-bottom: 0      
-      a + a
-        padding-left: 1rem
-    .close
-      display: none
-      position: absolute
-      top: $panel-card-padding / 2
-      right: $panel-card-padding / 2
-      color: white
-      &:hover
-        color: white
-    
-.property.panel
-  .desc
+  &.grid-half
+    grid-template-columns: repeat(auto-fill, minmax($grid-small-width, 1fr))  
+    grid-auto-rows: $grid-small-width
+
+.panel.panel-card
+  position: relative
+  background: white
+  border-radius: $panel-radius
+  padding: $panel-card-padding
+  box-shadow: 0px 2px 10px rgba(0,0,0,.15)
+  overflow: hidden
+  .panel-footer
+    width: calc(100% + #{$panel-card-padding})
+    bottom: 0
+    text-align: right    
+    border-top: 1px solid #dddddd
+    box-sizing: content-box
+    margin-top: $panel-card-padding
+    margin-right: -$panel-card-padding
+    margin-left: -$panel-card-padding
+    margin-bottom: -$panel-card-padding
+    padding-top: $panel-card-padding / 2
+    padding-right: $panel-card-padding / 2
+    padding-left: $panel-card-padding / 2
+    padding-bottom: $panel-card-padding / 2
+    a + a
+      padding-left: 1rem
+  .close
     display: none
-  &.extend
-    .price-sum
-      display: none
-    .desc
-      display: block      
-    .close
-      display: inline-block
+    position: absolute
+    top: $panel-card-padding / 2
+    right: $panel-card-padding / 2
+    color: white
+    &:hover
+      color: white
     
+.property
+
+.icon-button
+  cursor: pointer
+  i.fa
+    color: $gray
   
 .panel-full
   grid-column: 1 / -1
 
-//---------- Header
-#header  
+//---------- Top bar
+#top  
   background-color: white
   padding: 0 2rem  
   *
@@ -122,29 +127,49 @@ $panel-card-padding: 1.5rem
       max-width: 5rem
       margin-right: 1rem
   .group-name
-    font-size: 1.4rem
+    font-size: 1.5rem
     font-weight: 600
-  .right
+    padding-top: .2rem
   .nav
     color: $dark
     text-decoration: none    
     padding: 26px 0
     .badge
-      padding: .4em .4em .5em .4em
+      padding: .5em
       min-width: 2em
 
-//---------- Search Page
+//---------- Login Page
+body#login-page
+  background: url('/images/temp-tmon.jpg') bottom center no-repeat fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+#login-box
+  min-width: 20rem
+  max-width: 30rem
+  margin: 25vh auto 0 auto
+  padding-top: 0
+  .login-header
+    margin-bottom: 1rem
+    *
+      vertical-align: middle
+    .logo
+      width: 7rem
+      margin-right: 1rem
+
+//---------- Search Page: card
 #search
-  // grid-column: 1 / span 1
-  // grid-row: 1 / span 1
+  grid-column: 1 / span 1
+  grid-row: 1 / span 1
 
 #filter
-  // grid-column: 1 / span 1
-  // grid-row: 2 / span 1
+  grid-column: 2 / span 1
+  grid-row: 1 / span 1
 
 #map  
-  display: none
-  border-radius: .25rem
+  border-radius: $panel-radius
+  min-height: 40rem
 
 .panel.property
   .thumbnail
@@ -152,45 +177,126 @@ $panel-card-padding: 1.5rem
     height: 15rem    
     overflow: hidden
     img
-      min-height: 15rem  
+      min-height: 15rem
+
+//---------- Search Page: list
+#list
+  table.table
+    td
+      border: none
+      vertical-align: middle
+      text-align: center
+      cursor: pointer
+    .thumbnail
+      width: 10rem
+      height: 10rem
+      overflow: hidden
+      img
+        height: 100%
+    .title
+      text-align: left
+    .price
+      text-align: right
+      font-size: 1.2rem
+
+//---------- View Page
+#view
+  .head-picture.panel
+    height: calc(#{$grid-small-width} * 4 + 4rem)
+    border-top-left-radius: $panel-radius
+    border-top-right-radius: $panel-radius
+    overflow: hidden
+    margin-bottom: -2rem
+    background: url('/images/temp-hotel-01.png') bottom 20% center no-repeat    
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover  
+  .detail.panel
+    grid-column: 1 / -1    
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    padding: 2.5rem
+  .view-picture.panel    
+    background: darken($dark, 10%)
+    border-radius: $panel-radius    
+    overflow: hidden
+    a
+      img
+        height: 100%      
+        // min-width: 100%        
+  #viewmap
+    min-height: 30rem
+    grid-row: span 3
+    border-radius: $panel-radius
   
+  #landmarks
+    grid-row: span 3
+    dl
+      dt
+        font-weight: normal
+      dd
+        color: $gray
+
   
+#imageModal
+  img
+    width: 100%
   
+@media (min-width: 1200px)  
+  #imageModal, #sliderModal
+    .modal-lg
+      max-width: 1200px
+    
 
 //---------- Responsive Media Setting
 
 // Small devices (landscape phones, 576px and down)
 @media (max-width: 576px)
-  
+  html
+    font-size: 15px  
+  .panel.panel-card
+    border-radius: 0
+  .grid-wrapper.grid-half
+    grid-template-columns: repeat(auto-fill, minmax($grid-width, 1fr))  
+    grid-auto-rows: auto
+  #view
+    .view-picture.panel
+      height: auto      
+      a 
+        img
+          width: 100%
+          height: auto
     
 // Medium devices (tablets, 768px and down)
-@media (max-width: 768px)
-  
+@media (max-width: 768px)  
+  #top
+    padding-bottom: 1rem
+    .nav
+      display: block
+      padding: .5rem 0
     
+  #filter
+    grid-column: auto
+    grid-row: auto
+  
+            
   
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px)  
-
+  
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px)
-  #map
-    display: block
+  #map    
     grid-column: 1 / span 2
     grid-row: 2 / span 2
-  
-  .panel.property.extend    
-    grid-column: span 2
-    grid-row: span 3
-    .thumbnail
-      img
-        width: 100%
-        margin-top: -25%
-    .panel-footer
-      display: none
 
-  
-    
-  
+// Super large HDMI devices (Huge resolution displays, 2000px and up)
+@media (min-width: 2000px)
+  html
+    font-size: 18px
+  .grid-wrapper
+    grid-gap: 1.25rem
 
 
   

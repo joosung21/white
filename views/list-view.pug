@@ -1,0 +1,115 @@
+include ./includes/header.pug
+
+body
+  include ./includes/top.pug
+  
+  .p-md-4
+
+    //- Start Grid
+    .grid-wrapper
+    
+      .panel.panel-card.bg-light
+        .form-group
+            label 지역
+            input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
+      .panel.panel-card.bg-light
+        .form-group
+          label 체크인          
+          input.form-control(type='date', value='2018-03-01')          
+        .form-group
+          label 체크아웃          
+          input.form-control(type='date', value='2018-03-04')
+      .panel.panel-card.bg-light
+        .row.compact
+          .col-lg-4
+            .form-group
+              label 성인
+              input.form-control(type='number', value='2', min='1')
+          .col-lg-4
+            .form-group
+              label 어린이
+              input.form-control(type='number', min='0')
+          .col-lg-4
+            .form-group
+              label 유아
+              input.form-control(type='number', min='0')        
+
+      .panel.panel-card.bg-light
+        .form-group
+          label 필터
+          .check-group
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  호텔 / 레지던스 / 리조트
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  호스텔 / 게스트하우스
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  펜션 / 풀빌라
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  캠핑 / 글램핑
+      
+      #list.panel.panel-card.panel-full
+        table.table.table-hover
+          tbody
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-01.png')
+              td.title
+                | 제주 제주제이 호텔
+              td 제주도 제주시
+              td 2~4인
+              td.price 120,000 ~ 240,000 원
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-02.png')
+              td.title
+                | 화이트캐슬
+              td 제주도 제주시
+              td 2~4인
+              td.price 200,000 ~ 22,000 원
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-03.png')
+              td.title
+                | 제주 제주제이 호텔
+              td 제주도 제주시
+              td 2~4인
+              td.price 120,000 ~ 240,000 원
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-04.png')
+              td.title
+                | 더 비싸다 호텔
+              td 제주도 제주시
+              td 2~4인
+              td.price 380,000 ~ 550,000 원
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-05.png')
+              td.title
+                | 제주 제주제이 호텔
+              td 제주도 제주시
+              td 2~4인
+              td.price 80,000 ~ 220,000 원
+            tr(onclick='location.href="/view"')
+              td(style='width:180px')
+                .thumbnail
+                  img(src='/images/temp-hotel-06.png')
+              td.title
+                | 제주 제주제이 호텔
+              td 제주도 제주시
+              td 2~4인
+              td.price 120,000 ~ 240,000 원
+            
