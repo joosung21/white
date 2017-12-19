@@ -1,6 +1,6 @@
 #top.mb-4.mb-md-0
   .row
-    .col-lg-5
+    .col-md-7
       .grid-wrapper
         .panel
           a.logo(href='/')
@@ -13,45 +13,16 @@
           a.nav.inline(href='/list-view')
             i.fa.fa-reorder.fa-2x.mr-1
             span 리스트로 보기
-    .col-lg-7.text-lg-right      
-      a.nav.mr-4.inline(href='#')
-        i.fa.fa-star-o.fa-lg.mr-2
+    .col-md-5.text-lg-right      
+      a.nav.mr-4.inline(href='/favorite')
+        i.fa.fa-heart-o.fa-2x.mr-2
         span 나의 찜목록
         span.badge.badge-pill.badge-secondary.ml-1 10      
       a.nav.dropdown.inline(href='#', data-toggle='dropdown')        
-        i.fa.fa-user.fa-lg.mr-2
+        i.fa.fa-user.fa-2x.mr-2
         span 김티몬
       .dropdown-menu
-        a.dropdown-item(href='#') 계정설정
-        .dropdown-divider
-        a.dropdown-item(href='/login') 로그아웃
-  
-  
-  
-  //- .row
-    .col-lg-3
-      a.logo(href='/')
-        img.img-fluid(src='/images/tmon_logo.png')
-      .group-name.inline Member's Mall
-    .view-menu.col-lg-3
-      a.nav.inline.mr-5(href='/')
-        i.fa.fa-clone.fa-2x.mr-1
-        span 카드로 보기
-      a.nav.inline(href='/list-view')
-        i.fa.fa-reorder.fa-2x.mr-1
-        span 리스트로 보기
-    .col-lg-6.text-lg-right
-      a.nav.mr-4.inline(href='#')
-        i.fa.fa-star-o.fa-lg.mr-2
-        span 나의 찜목록
-        span.badge.badge-pill.badge-secondary.ml-1 10
-      //- a.nav.mr-4.inline(href='#')
-        span 장바구니
-        span.badge.badge-pill.badge-secondary.ml-1 1
-      a.nav.dropdown.inline(href='#', data-toggle='dropdown')        
-        i.fa.fa-user.fa-lg.mr-2
-        span 김티몬
-      .dropdown-menu.dropdown-menu-right
-        a.dropdown-item(href='#') 계정설정
+        //- a.dropdown-item(href='#') 계정설정
+        a.dropdown-item(href='/book-list') 예약내역
         .dropdown-divider
         a.dropdown-item(href='/login') 로그아웃

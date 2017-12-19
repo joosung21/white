@@ -1,0 +1,59 @@
+include ./includes/header.pug
+
+body
+  include ./includes/top.pug
+  
+  #book.p-md-4    
+    .grid-wrapper
+      .no-print.panel.panel-card.panel-full.text-center
+        h2.m-0.py-4.text-success
+          i.fa.fa-check.fa-lg.mr-2
+          | 예약완료
+        .lead
+          | 예약확인서가 투숙자의 이메일로 발송되었습니다.
+      .panel.panel-card.panel-full
+        .container
+          .print-only
+            .d-flex.align-items-center
+              img.mr-4(src='/images/tmon_logo.png', style='width: 120px; height: 120px')
+              h2 Member's Mall
+            h1.text-center.py-4.mb-5 예약확인서
+          .row
+            .col-lg
+              dl
+                dt 숙소명
+                dd 제주 제주제이 호텔
+                dt 주소
+                dd 제주특별자치도 제주시 귀곡리 740-14
+                dt 투숙자명
+                dd 안주성
+                dt 인원
+                dd 성인 2, 유아 1
+            .col-lg
+              dl
+                dt 예약번호
+                dd LFI24505
+                dt 체크인
+                dd 2018년 1월 11일(목) 15:00부터
+                dt 체크아웃
+                dd 2018년 1월 12일(금) 11:00까지
+                dt 총 숙박 기간
+                dd 1박
+                dt 객실명
+                dd Deluxe Room
+                dt 총액
+                dd 240,000 원
+          .row
+            .col-lg
+              a.btn.btn-primary.mr-2(href='/book-list') 
+                i.fa.fa-arrow-left.fa-lg.mr-1
+                | 예약목록
+              button.btn.btn-secondary(type='button', onclick='window.print()')
+                i.fa.fa-print.fa-lg.mr-1
+                | 인쇄하기
+            .col-lg.text-lg-right
+              button.btn.btn-danger(type='button', onclick='')                
+                i.fa.fa-times.fa-lg.mr-1
+                | 취소하기
+      
+        

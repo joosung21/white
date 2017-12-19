@@ -9,7 +9,7 @@ body
     .grid-wrapper
     
       //- 검색 패널
-      #search.panel.panel-card.bg-light
+      #search.panel.panel-card
         .form-group
             label 지역
             input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
@@ -19,7 +19,7 @@ body
         .form-group
           label 체크아웃          
           input.form-control(type='date', value='2018-03-04')
-        .row.compact
+        .form-row
           .col-lg-4
             .form-group
               label 성인
@@ -34,18 +34,10 @@ body
               input.form-control(type='number', min='0')        
 
       //- 필터 패널
-      #filter.panel.panel-card.bg-light
+      #filter.panel.panel-card
         .form-group
           label 필터
           .check-group
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  호텔 / 레지던스 / 리조트
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  호스텔 / 게스트하우스
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
@@ -53,7 +45,35 @@ body
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
+                |  호텔
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  리조트
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  모텔
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  레지던스            
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  호스텔 / 게스트하우스
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
                 |  캠핑 / 글램핑
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  한옥
+            .form-check
+              label.form-check-label
+                input.form-check-input(type='checkbox')
+                |  B&amp;B
       
       //- 지도 패널
       #map.panel 
@@ -72,7 +92,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-02.png')
@@ -86,7 +106,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-03.png')
@@ -100,7 +120,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-04.png')
@@ -114,7 +134,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-05.png')
@@ -128,7 +148,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-06.png')
@@ -142,7 +162,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-02.png')
@@ -156,7 +176,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-04.png')
@@ -170,7 +190,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-01.png')
@@ -184,7 +204,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-03.png')
@@ -198,7 +218,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-06.png')
@@ -212,7 +232,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-02.png')
@@ -226,7 +246,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-01.png')
@@ -240,7 +260,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-05.png')
@@ -254,7 +274,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-04.png')
@@ -268,7 +288,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-03.png')
@@ -282,7 +302,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-05.png')
@@ -296,7 +316,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-02.png')
@@ -310,7 +330,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-06.png')
@@ -324,7 +344,7 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
       .property.panel.panel-card
         .thumbnail
           img.img-fluid(src='/images/temp-hotel-01.png')
@@ -338,4 +358,8 @@ body
             i.fa.fa-heart-o.fa-2x          
         .price-sum 120,000원 - 240,000원
         .panel-footer
-          a.btn.btn-link(href='/view') 자세히 보기
+          a.btn.btn-light(href='/view') 자세히 보기
+      .property.panel
+        button.btn.btn-lg.btn-block.btn-light(type='button', style='height:100%')
+          | + 카드 20개 더보기
+          .text-muted 남은카드 46

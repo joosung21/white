@@ -48,17 +48,15 @@ body, input
   *
     vertical-align: middle
 
+.print-only
+  display: none
+
+
 //---------- Bootstrap Overide
 .badge-secondary
   background-color: $gray
 .badge-dark
   background-color: $dark
-.row.compact
-  margin-right: -.5rem
-  margin-left: -.5rem
-  [class*="col-"]
-    padding-left: .5rem !important
-    padding-right: .5rem !important
 
 //---------- Grid
 $panel-card-padding: 1.5rem
@@ -105,8 +103,6 @@ $grid-small-width: 10rem
     color: white
     &:hover
       color: white
-    
-.property
 
 .icon-button
   cursor: pointer
@@ -115,6 +111,11 @@ $grid-small-width: 10rem
   
 .panel-full
   grid-column: 1 / -1
+
+dl.dl-inline
+
+
+
 
 //---------- Top bar
 #top  
@@ -207,7 +208,7 @@ body#login-page
     border-top-right-radius: $panel-radius
     overflow: hidden
     margin-bottom: -2rem
-    background: url('/images/temp-hotel-01.png') bottom 20% center no-repeat    
+    background: url('') bottom 20% center no-repeat    
     -webkit-background-size: cover
     -moz-background-size: cover
     -o-background-size: cover
@@ -249,14 +250,30 @@ body#login-page
       max-width: 1200px
     
 
+//---------- Booking Page
+#book
+  #info-checkin
+    grid-column-start: 1
+  #info-inclusive
+    grid-column-start: 1
+  #info-property
+    grid-column: 2 / -1
+    grid-row: 2
+  #fillout
+    grid-column: 2 / -1
+    grid-row: 3 / span 2
+  
+
 //---------- Responsive Media Setting
 
 // Small devices (landscape phones, 576px and down)
 @media (max-width: 576px)
   html
-    font-size: 15px  
-  .panel.panel-card
-    border-radius: 0
+    font-size: 15px
+  h1
+    font-size: 2rem
+  .panel
+    border-radius: 0 !important  
   .grid-wrapper.grid-half
     grid-template-columns: repeat(auto-fill, minmax($grid-width, 1fr))  
     grid-auto-rows: auto
@@ -267,7 +284,16 @@ body#login-page
         img
           width: 100%
           height: auto
-    
+    .detail.panel
+      padding: 1.5rem
+  #book
+    #info-property
+      grid-column-start: 1
+      grid-row: 2
+    #fillout
+      grid-column-start: 1
+      grid-row: auto
+
 // Medium devices (tablets, 768px and down)
 @media (max-width: 768px)  
   #top
@@ -278,10 +304,8 @@ body#login-page
     
   #filter
     grid-column: auto
-    grid-row: auto
-  
-            
-  
+    grid-row: auto    
+              
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px)  
   
@@ -299,4 +323,39 @@ body#login-page
     grid-gap: 1.25rem
 
 
+// Print Only
+@media print
+  #top, .no-print, .btn
+    display: none
+  .print-only
+    display: block
   
+
+
+
+
+
+@media (max-width: 576px)
+  html
+    font-size: 15px  
+
+// Medium devices (tablets, 768px and down)
+@media (max-width: 768px)  
+ 
+              
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+  html
+    font-size: 16px
+  
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+  html
+    font-size: 17px
+
+// Super large HDMI devices (Huge resolution displays, 2000px and up)
+@media (min-width: 2000px)
+  html
+    font-size: 18px
+  
+
