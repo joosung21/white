@@ -11,8 +11,8 @@ body
       //- 검색 패널
       #search.panel.panel-card
         .form-group
-            label 지역
-            input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
+          label 지역
+          input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
         .form-group
           label 체크인          
           input.form-control(type='date', value='2018-03-01')          
@@ -36,7 +36,31 @@ body
       //- 필터 패널
       #filter.panel.panel-card
         .form-group
-          label 필터
+          label 숙소명
+          input.form-control(type='text')
+        .form-group
+          label 1박당 가격
+          .form-inline
+            select.form-control
+              option 최소가격 없음
+              option 5만원 부터
+              option 10만원 부터
+              option 15만원 부터
+              option 20만원 부터
+              option 25만원 부터
+              option 30만원 부터
+            span.mx-2 -
+            select.form-control
+              option 최대가격 없음
+              option 5만원 까지
+              option 10만원 까지
+              option 15만원 까지
+              option 20만원 까지
+              option 25만원 까지
+              option 30만원 까지
+              
+        .form-group
+          label 형태
           .check-group
             .form-check
               label.form-check-label
@@ -45,19 +69,11 @@ body
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  호텔
+                |  호텔 / 리조트            
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  리조트
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  모텔
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  레지던스            
+                |  레지던스 / 모텔            
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
@@ -65,15 +81,7 @@ body
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  캠핑 / 글램핑
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  한옥
-            .form-check
-              label.form-check-label
-                input.form-check-input(type='checkbox')
-                |  B&amp;B
+                |  캠핑 / 글램핑            
       
       //- 지도 패널
       #map.panel 

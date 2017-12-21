@@ -59,6 +59,9 @@ body
               input.form-control(type='text')
             .form-group
               label 이메일 주소
+              input.form-control(type='email')
+            .form-group
+              label 전화번호
               input.form-control(type='text')
             .form-row
               .col-lg
@@ -73,5 +76,8 @@ body
                 .form-group
                   label 유아
                   input.form-control(type='number', min='0')
+            .form-group
+              label 메모 / 요청사항
+              textarea.form-control(rows='4')
             a.btn.btn-primary.btn-block.mt-4(href='/confirm') 예약하기
         
