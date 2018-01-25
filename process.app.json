@@ -7,7 +7,7 @@
     {
       "name": "prototype-white",
       "script": "app.js",
-      "watch": false,
+      "watch": true,
       "instances" : "1",
       "exec_mode" : "cluster",
       "merge_logs": true,
