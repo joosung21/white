@@ -51,6 +51,12 @@ body, input
 .print-only
   display: none
 
+.cursor-pointer
+  cursor: pointer  
+
+.table-vertical-middle
+  th, td
+    vertical-align: middle
 
 //---------- Bootstrap Overide
 .badge-secondary
@@ -113,8 +119,6 @@ $grid-small-width: 10rem
   grid-column: 1 / -1
 
 dl.dl-inline
-
-
 
 
 //---------- Top bar
@@ -249,7 +253,6 @@ body#login-page
     .modal-lg
       max-width: 1200px
     
-
 //---------- Booking Page
 #book
   #info-checkin
@@ -307,7 +310,7 @@ body#login-page
     grid-row: auto    
               
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px)  
+// @media (min-width: 992px)
   
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px)
@@ -329,18 +332,13 @@ body#login-page
     display: none
   .print-only
     display: block
-  
-
-
-
-
 
 @media (max-width: 576px)
   html
     font-size: 15px  
 
 // Medium devices (tablets, 768px and down)
-@media (max-width: 768px)  
+// @media (max-width: 768px)  
  
               
 // Large devices (desktops, 992px and up)

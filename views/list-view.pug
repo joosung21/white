@@ -2,22 +2,22 @@ include ./includes/header.pug
 
 body
   include ./includes/top.pug
-  
+
   .p-md-4
 
     //- Start Grid
     .grid-wrapper
-    
+
       .panel.panel-card
         .form-group
             label 지역
             input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
       .panel.panel-card
         .form-group
-          label 체크인          
-          input.form-control(type='date', value='2018-03-01')          
+          label 체크인
+          input.form-control(type='date', value='2018-03-01')
         .form-group
-          label 체크아웃          
+          label 체크아웃
           input.form-control(type='date', value='2018-03-04')
       .panel.panel-card
         .row.compact
@@ -32,7 +32,7 @@ body
           .col-lg-4
             .form-group
               label 유아
-              input.form-control(type='number', min='0')        
+              input.form-control(type='number', min='0')
 
       .panel.panel-card
         .form-group
@@ -54,7 +54,7 @@ body
               label.form-check-label
                 input.form-check-input(type='checkbox')
                 |  캠핑 / 글램핑
-      
+
       .panel.panel-card.panel-full
         h5.m-0 46개의 검색결과가 있습니다.
 
@@ -169,20 +169,16 @@ body
               td 제주도 제주시
               td 2~4인
               td.price 120,000 ~ 240,000 원
-
-      .panel.panel-card.panel-full
         nav
           ul.pagination.justify-content-center
             li.page-item.disabled
-              span.page-link Previous
-            li.page-item
-              a.page-link(href='#') 1
+              span.page-link 이전
             li.page-item.active
-              span.page-link
-                | 2
-                span.sr-only (current)
+              span.page-link 1
+            li.page-item
+              a.page-link(href='#') 2
             li.page-item
               a.page-link(href='#') 3
             li.page-item
-              a.page-link(href='#') Next
-            
+              a.page-link(href='#') 다음
+
