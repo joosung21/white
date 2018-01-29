@@ -13,17 +13,18 @@
           a.nav.inline(href='/list-view')
             i.fa.fa-reorder.fa-2x.mr-1
             span 리스트로 보기
-    .col-md-5.text-lg-right      
+    .col-md-5.text-lg-right
       a.nav.mr-4.inline(href='/favorite')
         i.fa.fa-heart-o.fa-2x.mr-2
         span 나의 찜목록
-        span.badge.badge-pill.badge-secondary.ml-1 10      
-      a.nav.dropdown.inline(href='#', data-toggle='dropdown')        
+        span.badge.badge-pill.badge-secondary.ml-1 10
+      a.nav.dropdown.inline(href='#', data-toggle='dropdown')
         i.fa.fa-user.fa-2x.mr-2
         span 김온다
       .dropdown-menu
         //- a.dropdown-item(href='#') 계정설정
-        a.dropdown-item(href='/member') 멤버관리
+        a.dropdown-item(href='/member') 멤버 관리
+        a.dropdown-item(href='/point') 포인트 관리
         a.dropdown-item(href='/book-list') 예약내역
         .dropdown-divider
         a.dropdown-item(href='/login') 로그아웃

@@ -10,6 +10,20 @@ body
       .panel.panel-card.panel-full
         h2.m-0 예약내역
       .property.panel.panel-card.panel-full
+        .row.mb-5
+          .col-md-2
+            select.form-control
+              option 예약일시
+              option 체크인
+          .col-md-6
+            .input-group
+              input.form-control(type='date')
+              span.input-group-addon 부터
+              input.form-control(type='date')
+              span.input-group-addon 까지
+          .col-md-4
+            input.form-control(type='text', placeholder='이름검색')
+
         table.table.table-hover
           thead
             tr

@@ -10,12 +10,12 @@ body
       .panel.panel-card.panel-full
         .d-flex
           h2.m-0
-            | 멤버관리
+            | 멤버 관리
           h5.ml-auto.mt-2.mb-0 사용멤버 207명
 
       .panel.panel-card.panel-full
         .row.mb-5
-          .col-3
+          .col-md-3
             .input-group
               select.form-control
                 option 모든 부서
@@ -25,16 +25,16 @@ body
                 option 인사팀
                 option 계약팀
               .input-group-btn
-                a.btn.btn-secondary(href='#', data-toggle='modal', data-target='#teamModal') 부서관리
-          .col-3
+                a.btn.btn-outline-secondary(href='#', data-toggle='modal', data-target='#teamModal') 부서 관리
+          .col-md-3
             input.form-control(type='text', placeholder='이름으로 검색')
-          .col-6.text-right
-            a.btn.btn-primary.mr-2(href='#', data-toggle='modal', data-target='#addMemberModal')
+          .col-md-6.text-right
+            a.btn.btn-outline-secondary.mr-2(href='#', data-toggle='modal', data-target='#addMemberModal')
               i.fa.fa-plus.mr-2
-              | 멤버추가
-            a.btn.btn-primary(href='#', data-toggle='modal', data-target='#addMassMemberModal')
-              i.fa.fa-plus.mr-2
-              | 여러 멤버추가
+              | 멤버 추가
+            a.btn.btn-outline-secondary(href='#', data-toggle='modal', data-target='#addMassMemberModal')
+              i.fa.fa-th-list.fa-lg.mr-2
+              | 여러멤버 추가
         -
           var message01 = `
             swal({
@@ -190,7 +190,7 @@ body
   .modal-dialog(role='document')
     .modal-content
       .modal-header
-        h5.modal-title 부서관리
+        h5.modal-title 부서 관리
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
       .modal-body
@@ -306,7 +306,7 @@ body
   .modal-dialog(role='document')
     .modal-content
       .modal-header
-        h5.modal-title 여러 맴버추가
+        h5.modal-title 여러맴버 추가
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
       .modal-body
@@ -319,7 +319,7 @@ body
 
       .modal-footer
         button.btn.btn-secondary(type='button', data-dismiss='modal') 취소
-        button.btn.btn-primary(type='button', disabled) 여러 멤버추가
+        button.btn.btn-primary(type='button', disabled) 여러멤버 추가
 
 //- 비밀번호 재설정 modal
 #resetPasswordModal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')

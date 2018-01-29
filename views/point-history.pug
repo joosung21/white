@@ -1,0 +1,91 @@
+include ./includes/header.pug
+
+body
+  include ./includes/top.pug
+
+  .p-md-4
+
+    //- Start Grid
+    .grid-wrapper
+      .panel.panel-card.panel-full
+        .d-flex
+          h2.m-0
+            | 포인트 사용내역
+          .ml-auto.mt-2
+            a.btn.btn-primary(href='/point')
+              i.fa.fa-reply.mr-2
+              | 포인트 관리로 돌아가기
+      .panel.panel-card.panel-full
+        h4.mb-4 총무팀 강하나 (잔여: 28,000)
+        table.table.table-hover.table-vertical-middle
+          thead
+            tr
+              th 적용일시
+              th 내용
+              th 부서
+              th 이름
+              th.text-right 포인트 증감
+              th.text-right 잔여포인트
+          tbody
+            tr
+              td 2018-02-08 10:00
+              td
+                a(href='#', data-toggle='modal', data-target='#bookDetailModal') LF10512
+              td 총무팀
+              td 강하나
+              td.text-right.text-danger -132,000
+              td.text-right 28,000
+            tr
+              td 2018-01-01 10:00
+              td 2018년 포인트 지급
+              td 총무팀
+              td 강하나
+              td.text-right +150,000
+              td.text-right 150,000
+
+//- 예약 Detail modal
+#bookDetailModal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title 예약조회
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        dl.row
+          dt.col-3 예약번호
+          dd.col-9 LFI24505
+        dl.row
+          dt.col-3 총숙박비
+          dd.col-9 240,000
+        dl.row
+          dt.col-3 포인트 사용
+          dd.col-9 150,000
+        dl.row
+          dt.col-3 추가결제
+          dd.col-9 90,000
+        dl.row
+          dt.col-3 숙소명
+          dd.col-9 제주 제이제이 호텔
+        dl.row
+          dt.col-3 객실명
+          dd.col-9 Deluxe Room
+        dl.row
+          dt.col-3 주소
+          dd.col-9 제주특별자치도 제주시 귀곡리 740-14
+        dl.row
+          dt.col-3 예약자
+          dd.col-9 총무팀 강하나
+        dl.row
+          dt.col-3 체크인
+          dd.col-9 2018년 1월 11일(목)
+        dl.row
+          dt.col-3 체크아웃
+          dd.col-9 2018년 1월 12일(금)
+
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') 취소
+        button.btn.btn-primary(type='button', disabled) 확인
+
+
+
