@@ -2,22 +2,22 @@ include ./includes/header.pug
 
 body
   include ./includes/top.pug
-  
+
   .p-md-4
 
     //- Start Grid
     .grid-wrapper
-    
+
       //- 검색 패널
       #search.panel.panel-card
         .form-group
           label 지역
           input.form-control(type='text', placeholder='예) 제주도, 속초, 안면도, 변산반도...')
         .form-group
-          label 체크인          
-          input.form-control(type='date', value='2018-03-01')          
+          label 체크인
+          input.form-control(type='date', value='2018-03-01')
         .form-group
-          label 체크아웃          
+          label 체크아웃
           input.form-control(type='date', value='2018-03-04')
         .form-row
           .col-lg-4
@@ -31,7 +31,7 @@ body
           .col-lg-4
             .form-group
               label 유아
-              input.form-control(type='number', min='0')        
+              input.form-control(type='number', min='0')
 
       //- 필터 패널
       #filter.panel.panel-card
@@ -58,7 +58,7 @@ body
               option 20만원 까지
               option 25만원 까지
               option 30만원 까지
-              
+
         .form-group
           label 형태
           .check-group
@@ -69,11 +69,11 @@ body
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  호텔 / 리조트            
+                |  호텔 / 리조트
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  레지던스 / 모텔            
+                |  레지던스 / 모텔
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
@@ -81,10 +81,10 @@ body
             .form-check
               label.form-check-label
                 input.form-check-input(type='checkbox')
-                |  캠핑 / 글램핑            
-      
+                |  캠핑 / 글램핑
+
       //- 지도 패널
-      #map.panel 
+      #map.panel
         script(async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYAR9ha33tDQfl81KCVoePD_w3KcAaWGo&callback=initMap')
 
       .property.panel.panel-card
@@ -97,7 +97,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -111,7 +111,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -125,7 +125,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -139,7 +139,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -153,7 +153,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart.fa-2x.text-danger
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -167,7 +167,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -181,7 +181,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -195,7 +195,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -209,7 +209,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -223,7 +223,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -237,7 +237,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -251,7 +251,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -265,7 +265,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -279,7 +279,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -293,7 +293,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -307,7 +307,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -321,7 +321,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -335,7 +335,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -349,7 +349,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기
@@ -363,7 +363,7 @@ body
               i.fa.fa-map-marker
               | 제주도 서귀포시
           a.icon-button.ml-auto
-            i.fa.fa-heart-o.fa-2x          
+            i.fa.fa-heart-o.fa-2x
         .price-sum 120,000원 - 240,000원
         .panel-footer
           a.btn.btn-light(href='/view') 자세히 보기

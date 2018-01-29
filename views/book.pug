@@ -2,8 +2,8 @@ include ./includes/header.pug
 
 body
   include ./includes/top.pug
-  
-  #book.p-md-4    
+
+  #book.p-md-4
     .grid-wrapper
       .panel.panel-card.panel-full
         h2.m-0 예약하기
@@ -26,14 +26,14 @@ body
             br
             i.fa.fa-cutlery.fa-lg.fa-fw
             span 조식 2인
-      
+
       #info-price.panel.panel-card
         dl.m-0
           dt 총 숙박비
           dd
             h1 240,000 원
           dt 취소 수수료
-          dd 
+          dd
             | 1월 8일 PM 11:59 전까지 무료 취소 가능
             br
             | 1월 9일 AM 12:00부터	₩43,125
@@ -79,5 +79,24 @@ body
             .form-group
               label 메모 / 요청사항
               textarea.form-control(rows='4')
+
+            hr
+
+            dl.row
+              dt.col-3 필요 포인트
+              dd.col-9 240,000
+            dl.row
+              dt.col-3 내 잔여 포인트
+              dd.col-9 150,000
+            dl.row
+              dt.col-3 추가 결제액
+              dd.col-9 90,000 원
+            dl.row
+              dt.col-3 결제수단
+              dd.col-9
+                select.form-control
+                  option 카드결제
+                  option 무통장입금
+
             a.btn.btn-primary.btn-block.mt-4(href='/confirm') 예약하기
-        
+
